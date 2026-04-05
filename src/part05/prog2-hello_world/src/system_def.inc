@@ -5,7 +5,7 @@
 ; System definitions
 ;--------------------------------------
 SYSTEM_STACK_SEG    EQU     0x7000
-SYSTEM_BOOT_SEG     EQU     0xf000
+SYSTEM_BOOT_SEG     EQU     0xf800
 
 ;--------------------------------------
 ; I/O port numbers
