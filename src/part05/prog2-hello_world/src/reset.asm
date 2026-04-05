@@ -9,4 +9,4 @@
         EXTERN init
 
 reset:
-        jmp SYSTEM_BOOT_SEG:init
+        jmp init

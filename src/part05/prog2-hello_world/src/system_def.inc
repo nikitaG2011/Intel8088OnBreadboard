@@ -1,11 +1,11 @@
         CPU 8086
         BITS 16
 
-;--------------------------------------
-; System definitions
-;--------------------------------------
-SYSTEM_STACK_SEG    EQU     0x7000
-SYSTEM_BOOT_SEG     EQU     0xf800
+        ;--------------------------------------
+        ; System definitions
+        ;--------------------------------------
+        SYSTEM_STACK_SEG    EQU     0x7000
+        SYSTEM_BOOT_SEG     EQU     0xF000
 
 ;--------------------------------------
 ; I/O port numbers

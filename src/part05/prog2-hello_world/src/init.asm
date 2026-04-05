@@ -1,10 +1,10 @@
         CPU 8086
         BITS 16
+        
 
         %include "system_def.inc"
 
         SECTION .text
-
         GLOBAL init
 
         EXTERN __dataoffset
@@ -13,7 +13,6 @@
         EXTERN __lbss
 
         EXTERN main
-
 init:
         mov ax, SYSTEM_STACK_SEG
         mov ss, ax

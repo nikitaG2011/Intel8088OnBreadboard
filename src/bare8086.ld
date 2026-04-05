@@ -6,18 +6,11 @@ MEMORY
   {
     csegvma	(rx) : ORIGIN = 0x00000, LENGTH = 0x10000
     dsegvma	(wx) : ORIGIN = 0x00000, LENGTH = 0x10000
-    e000vma	(r)  : ORIGIN = 0x00000, LENGTH = 0x10000
-    binfile	(wx) : ORIGIN = 0x00000, LENGTH = 0x20000
+    binfile	(wx) : ORIGIN = 0x00000, LENGTH = 0x8000
   }
 
 SECTIONS
   {
-    .e000 : {
-        FILL(0xff);
-		*(.e000) *(.e000.*)
-        . = 0xffff;
-        BYTE (0xff)
-	} >e000vma AT >binfile
 
     .text : {
         FILL(0x90);
@@ -26,7 +19,7 @@ SECTIONS
 		KEEP (*(.init))
 		*(.text) *(.text.*)
 		__etext = .;
-		ASSERT(. <= 0xfff0, "Error: too large");
+      ASSERT(. <= 0x7ff0, "Error: too large");
 	} >csegvma AT >binfile
 
     .data : {
@@ -57,7 +50,7 @@ SECTIONS
         __ebss = .;
 	} >dsegvma
 
-    .resetvec : AT(0x1fff0) {
+    .resetvec : AT(0x7ff0) {
         FILL(0xff);
         KEEP(*(.reset));
         . = 0x000f;
